@@ -1,3 +1,6 @@
+import 'package:sms_forwarder/phone_call_notifier.dart';
+import 'package:sms_forwarder/channel.dart';
+
 import 'package:telephony/telephony.dart';
 
 import 'forwarding.dart';
@@ -9,11 +12,17 @@ class BackgroundForwarder {
   static ForwarderManager _backgroundManager;
   final ForwarderManager mgr = new ForwarderManager();
 
-  BackgroundForwarder(Telephony telephony) {
+  BackgroundForwarder(
+      Telephony telephony, PhoneCallNotifier phoneCallNotifier) {
+    _run(telephony, phoneCallNotifier);
+  }
+
+  void _run(Telephony telephony, PhoneCallNotifier phoneCallNotifier) async {
+    await Channel.invokeMethod(Channel.getPhoneAndSmsPermission);
+    phoneCallNotifier.start((msg) async => await mgr.forward(msg));
     telephony.listenIncomingSms(
         onNewMessage: (msg) async => await mgr.forward(msg),
-        onBackgroundMessage: onBackgroundMessage
-    );
+        onBackgroundMessage: onBackgroundMessage);
   }
 
   static void onBackgroundMessage(SmsMessage msg) async {

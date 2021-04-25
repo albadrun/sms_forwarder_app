@@ -4,7 +4,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:telephony/telephony.dart';
-import 'package:flutter/foundation.dart';
 
 extension ToMap on SmsMessage {
   Map get toMap {
@@ -96,9 +95,6 @@ abstract class HttpForwarder implements AbstractForwarder {
   Future<bool> forward(SmsMessage sms) async {
     return Future<bool>(() async {
       var response = await send(sms);
-      // TODO: remove debug prints
-      debugPrint("Response status: ${response.statusCode}.");
-      debugPrint("Response body: \'${response.body}\'.");
       return response.statusCode >= 200 && response.statusCode < 400;
     });
   }

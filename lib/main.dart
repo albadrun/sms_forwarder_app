@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sms_forwarder/phone_call_notifier.dart';
 import 'package:sms_forwarder/update_checker.dart';
 import 'package:telephony/telephony.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,7 +12,8 @@ import 'background_forwarder.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(new MyApp(new BackgroundForwarder(Telephony.instance)));
+  runApp(new MyApp(
+      new BackgroundForwarder(Telephony.instance, new PhoneCallNotifier())));
 }
 
 class MyApp extends StatelessWidget {

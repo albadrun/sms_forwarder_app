@@ -19,6 +19,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   shelf_static:  0.2.8
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  android: true
+  image_path: "icon.png"
 
 flutter:
   uses-material-design: true

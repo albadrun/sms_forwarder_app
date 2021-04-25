@@ -32,7 +32,7 @@ class _AppSettingsScreenState extends State<AppSettingsScreen> {
   void initState() {
     super.initState();
 
-    _testMessageController = new TextEditingController(text: "Test message");
+    _testMessageController = new TextEditingController(text: "Test Message");
     _testMessageController.addListener(_onTextChanged);
     setState(_onTextChanged);
 
@@ -68,7 +68,7 @@ class _AppSettingsScreenState extends State<AppSettingsScreen> {
 
   void _testForwarders() async {
     // ignore: invalid_use_of_visible_for_testing_member
-    final results  = await fwd.mgr.forward(SmsMessage.fromMap({
+    final results = await fwd.mgr.forward(SmsMessage.fromMap({
       "address": "SmsForwarder",
       "body": _testMessageController.text,
       "date": DateTime.now().millisecondsSinceEpoch.toString(),

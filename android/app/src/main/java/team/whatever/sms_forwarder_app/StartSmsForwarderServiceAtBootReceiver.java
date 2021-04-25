@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 
-
 import static android.content.Context.MODE_PRIVATE;
 
 class StartSmsForwarderServiceAtBootReceiver extends BroadcastReceiver {
@@ -18,10 +17,7 @@ class StartSmsForwarderServiceAtBootReceiver extends BroadcastReceiver {
         h.post(new Runnable() {
             @Override
             public void run() {
-                final SharedPreferences prefs = context.getSharedPreferences(
-                        "FlutterSharedPreferences",
-                        MODE_PRIVATE
-                );
+                final SharedPreferences prefs = context.getSharedPreferences("FlutterSharedPreferences", MODE_PRIVATE);
                 final boolean launchOnStartup = prefs.getBoolean("flutter.launch_on_startup", true);
                 if (launchOnStartup) {
                     Intent intent_ = new Intent(context, MainActivity.class);
