@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: new HomePage(title: 'SMS Forwarder ($APP_VERSION)', fwd: this.fwd),
+      home:
+          new HomePage(title: 'SMS Forwarder ($APP_VERSION)-P', fwd: this.fwd),
     );
   }
 }
