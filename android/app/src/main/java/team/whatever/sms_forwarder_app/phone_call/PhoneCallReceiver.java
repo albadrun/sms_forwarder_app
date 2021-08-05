@@ -38,7 +38,10 @@ public abstract class PhoneCallReceiver extends BroadcastReceiver {
                 state = TelephonyManager.CALL_STATE_RINGING;
             }
 
-            onCallStateChanged(context, state, number);
+            if (number != null) {
+                // Ignore when number is null.
+                onCallStateChanged(context, state, number);
+            }
         }
     }
 

@@ -21,9 +21,6 @@ class PhoneCallNotifier {
         String phoneNumber = splitted[0];
         String dateMillis = splitted[1];
 
-        developer.log(phoneNumber);
-        developer.log(dateMillis);
-
         _messageHandler(_convertToSmsMessage(phoneNumber, dateMillis));
       }
     });

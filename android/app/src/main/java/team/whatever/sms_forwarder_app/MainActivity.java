@@ -32,20 +32,21 @@ public class MainActivity extends FlutterActivity {
                     if (call.method.equals(GET_PHONE_PERMISSION)) {
                         PermissionHandler permissionHandler = new PermissionHandler(MainActivity.this);
                         permissionHandler.checkOrRequestPermission(new String[]{
-                                PermissionHandler.PROCESS_OUTGOING_CALLS,
-                                PermissionHandler.READ_PHONE_STATE}
+                                PermissionHandler.READ_PHONE_STATE,
+                                PermissionHandler.READ_CALL_LOG,
+                                PermissionHandler.PROCESS_OUTGOING_CALLS}
                         );
                         result.success(METHOD_SUCCESS);
 
                     } else if (call.method.equals(GET_PHONE_AND_SMS_PERMISSION)) {
                         PermissionHandler permissionHandler = new PermissionHandler(MainActivity.this);
                         permissionHandler.checkOrRequestPermission(new String[]{
-                                PermissionHandler.PROCESS_OUTGOING_CALLS,
                                 PermissionHandler.READ_PHONE_STATE,
+                                PermissionHandler.READ_CALL_LOG,
+                                PermissionHandler.PROCESS_OUTGOING_CALLS,
                                 PermissionHandler.READ_SMS,
                                 PermissionHandler.SEND_SMS,
-                                PermissionHandler.RECEIVE_SMS,
-                                }
+                                PermissionHandler.RECEIVE_SMS}
                         );
                         result.success(METHOD_SUCCESS);
                     }

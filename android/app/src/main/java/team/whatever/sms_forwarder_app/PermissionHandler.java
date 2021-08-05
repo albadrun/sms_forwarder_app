@@ -13,6 +13,7 @@ public class PermissionHandler {
     private final int PHONE_REQUEST_CODE = 17;
 
     public static final String READ_PHONE_STATE = Manifest.permission.READ_PHONE_STATE;
+    public static final String READ_CALL_LOG = Manifest.permission.READ_CALL_LOG;
     public static final String PROCESS_OUTGOING_CALLS = Manifest.permission.PROCESS_OUTGOING_CALLS;
     public static final String READ_SMS = Manifest.permission.READ_SMS;
     public static final String SEND_SMS = Manifest.permission.SEND_SMS;
